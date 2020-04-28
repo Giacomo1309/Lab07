@@ -37,7 +37,7 @@ public class PowerOutageDAO {
 	}
 	
 	
-	public List<Nerc> getNercLista() {
+	public List<Nerc> getQualcosa() {
 
 		String sql = "SELECT id, value FROM nerc";
 		List<Nerc> nercList = new ArrayList<>();
