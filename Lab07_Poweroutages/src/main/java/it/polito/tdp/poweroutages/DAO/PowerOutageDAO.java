@@ -33,6 +33,32 @@ public class PowerOutageDAO {
 		}
 
 		return nercList;
+		
+	}
+	
+	
+	public List<Nerc> getNercLista() {
+
+		String sql = "SELECT id, value FROM nerc";
+		List<Nerc> nercList = new ArrayList<>();
+
+		try {
+			Connection conn = ConnectDB.getConnection();
+			PreparedStatement st = conn.prepareStatement(sql);
+			ResultSet res = st.executeQuery();
+
+			while (res.next()) {
+				Nerc n = new Nerc(res.getInt("id"), res.getString("value"));
+				nercList.add(n);
+			}
+
+			conn.close();
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+
+		return nercList;
 	}
 	
 

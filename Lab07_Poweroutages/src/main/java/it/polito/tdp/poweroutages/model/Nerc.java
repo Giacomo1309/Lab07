@@ -1,15 +1,37 @@
 package it.polito.tdp.poweroutages.model;
 
+import java.util.*;
+
 public class Nerc {
 
 	
 	private int id;
 	private String value;
+	private List<Rilevazione> rilevazioni;
 
 	public Nerc(int id, String value) {
 		this.id = id;
 		this.value = value;
 	}
+	
+
+	public List<Rilevazione> getRilevazioni() {
+		return rilevazioni;
+	}
+
+
+	public void setRilevazioni(List<Rilevazione> rilevazioni) {
+		this.rilevazioni = rilevazioni;
+	}
+
+
+	public Nerc(int id, String value, List<Rilevazione> rilevazioni) {
+		super();
+		this.id = id;
+		this.value = value;
+		this.rilevazioni = rilevazioni;
+	}
+
 
 	public int getId() {
 		return id;
@@ -49,12 +71,20 @@ public class Nerc {
 		return true;
 	}
 
+
 	@Override
 	public String toString() {
+		return "Nerc [id=" + id + ", value=" + value + ", rilevazioni=" + rilevazioni + "]";
+	}
+
+	//@Override
+	
+	/**public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append(value);
 		return builder.toString();
-	}
+	}**/
+
 	
 
 }
